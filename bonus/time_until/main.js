@@ -7,9 +7,14 @@ function time_until_next_hour() {
 
     const next_hour = new Date(Math.ceil(Date.now() / 3600000) * 3600000).toLocaleTimeString();
 
-    // const time_until = ;
-    document.getElementById("next-hour").innerHTML = (next_hour);
+    const remaining_time_mins = 60 - (new Date().getMinutes());
+    const remaining_time_secs = 60 - (new Date().getSeconds());
+
+
+
     document.getElementById("current-time").innerHTML = (current_time);
+    document.getElementById("next-hour").innerHTML = (next_hour);
+    document.getElementById("remaining-time").innerHTML = (`${remaining_time_mins}:${remaining_time_secs}`);
 }
 
 setInterval(time_until_next_hour, 1000);
