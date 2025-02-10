@@ -14,15 +14,27 @@ function choose_winner() {
     const oddOrEven = (user_number + machine_number) % 2; //value 1 if odd (true)
     console.log(oddOrEven);
 
-    if (oddOrEven && user_choice == "odd") {
-        document.getElementById("final-winner").innerHTML = (`You won! the number was odd`);
-    } else if (oddOrEven && user_choice == "even") {
-        document.getElementById("final-winner").innerHTML = (`You lost! the number was odd`);
-    } else if (oddOrEven != 1 && user_choice == "odd") {
-        document.getElementById("final-winner").innerHTML = (`You lost! the number was even`);
-    } else if (oddOrEven != 1 && user_choice == "even") {
-        document.getElementById("final-winner").innerHTML = (`You won! the number was even`);
+    if (user_choice == "odd" || user_choice == "even") {
+
+        if (user_number >= 1 && user_number <= 9) {
+
+            if (oddOrEven && user_choice == "odd") {
+                document.getElementById("final-winner").innerHTML = (`You won! the number was odd`);
+            } else if (oddOrEven && user_choice == "even") {
+                document.getElementById("final-winner").innerHTML = (`You lost! the number was odd`);
+            } else if (oddOrEven != 1 && user_choice == "odd") {
+                document.getElementById("final-winner").innerHTML = (`You lost! the number was even`);
+            } else if (oddOrEven != 1 && user_choice == "even") {
+                document.getElementById("final-winner").innerHTML = (`You won! the number was even`);
+            } else {
+                document.getElementById("final-winner").innerHTML = (`Something wrong happened!`);
+            }
+
+        } else {
+            document.getElementById("final-winner").innerHTML = (`Hey no cheating! the number must be between 1 and 9`);
+        }
+
     } else {
-        document.getElementById("final-winner").innerHTML = (`Something wrong happened!`);
+        document.getElementById("final-winner").innerHTML = (`Please check the spelling!`);
     }
-}
+} 
