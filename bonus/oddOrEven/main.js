@@ -10,5 +10,19 @@ function choose_winner() {
 
     const machine_number = Math.floor(Math.random() * 9 + 1);
     console.log(machine_number);
-    document.getElementById("final-winner").innerHTML = (`You won!`);
+
+    const oddOrEven = (user_number + machine_number) % 2; //value 1 if odd (true)
+    console.log(oddOrEven);
+
+    if (oddOrEven && user_choice == "odd") {
+        document.getElementById("final-winner").innerHTML = (`You won! the number was odd`);
+    } else if (oddOrEven && user_choice == "even") {
+        document.getElementById("final-winner").innerHTML = (`You lost! the number was odd`);
+    } else if (oddOrEven != 1 && user_choice == "odd") {
+        document.getElementById("final-winner").innerHTML = (`You lost! the number was even`);
+    } else if (oddOrEven != 1 && user_choice == "even") {
+        document.getElementById("final-winner").innerHTML = (`You won! the number was even`);
+    } else {
+        document.getElementById("final-winner").innerHTML = (`Something wrong happened!`);
+    }
 }
